@@ -5,23 +5,23 @@ function WeightRandom(data) {
 	});
 }
 
-WeightRandom.prototype.add = function(obj) {
-	if(!obj) return;
+WeightRandom.prototype.add = function (obj) {
+	if (!obj) return;
 	//return Object.assign(this.data, obj);
-	for(var key in obj){
+	for (var key in obj) {
 		this.data[key] = obj[key];
 		this.total += obj[key];
 	}
 	return this.data
 }
 
-WeightRandom.prototype.del = function(key) {
+WeightRandom.prototype.del = function (key) {
 	this.total -= this.data[key];
 	delete this.data[key];
 	return this.data;
 }
 
-WeightRandom.prototype.jump = function() {
+WeightRandom.prototype.jump = function () {
 	keys = Object.keys(this.data);
 	weights = Object.values(this.data);
 	random = Math.random() * this.total;
